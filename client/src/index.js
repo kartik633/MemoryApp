@@ -8,4 +8,9 @@ import App from "./App";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
-reactDom.render(<App />, document.getElementById("root"));
+reactDom.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
