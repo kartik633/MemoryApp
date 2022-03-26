@@ -7,12 +7,12 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
-app.use("/posts", postRoutes);
 
 app.use(bodyParser.json({ limit: "30mb", extended: "true" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: "true" }));
 app.use(cors());
 
+app.use("/posts", postRoutes);
 //mondobd cloud
 const CONNECTION_URL =
   "mongodb+srv://kartik:admin123@cluster0.z2p2g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
