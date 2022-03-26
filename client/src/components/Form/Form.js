@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
-import { createPost } from "../../api";
+import { createPost } from "../../actions/posts";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -17,7 +17,7 @@ const Form = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     dispatch(createPost(postData));
@@ -58,9 +58,9 @@ const Form = () => {
             variant="outlined"
             label="Message"
             fullWidth
-            value={postData.title}
+            value={postData.message}
             onChange={(e) =>
-              setPostData({ ...postData, title: e.target.value })
+              setPostData({ ...postData, message: e.target.value })
             }
           />
           <TextField
